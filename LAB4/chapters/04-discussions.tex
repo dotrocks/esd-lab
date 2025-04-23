@@ -1,0 +1,13 @@
+\chapter{Analysis \& Discussions}
+
+\section{Clipping Behavior}
+
+Clipping occurs when the output voltage reaches the supply voltage limits and can no longer increase linearly with the input signal, resulting in a distorted waveform. This is evident in the experimental results where the output voltage is limited to 12V due to the power supply, as seen in Figure \ref{fig:non-inverting-970m-output} and Figure \ref{fig:non-inverting-2-output}. The output voltage should be 13.7V and 23V for 970mV and 2V input signals, respectively. The clipping behavior is more visible in Figure \ref{fig:non-inverting-2-output} due to the higher input voltage.
+
+\section{Theoretical vs. Experimental Results}
+
+The theoretical analysis of the non-inverting amplifier predicts the output voltage to be 2.3V, 13.7V, and 23V for 100mV, 970mV, and 2V input signals, respectively. However, the experimental results show that the output voltage is limited to 12V due to the power supply. This discrepancy between the theoretical and experimental results can be attributed to the limitations of the power supply and the non-ideal behavior of the op-amp.
+
+\section{Simulation vs. Experimental Results}
+
+The simulation results closely match the theoretical analysis, as the simulation software does not have the limitations of the power supply and can accurately model the behavior of the op-amp. In contrast, the experimental results deviate from the theoretical analysis due to the limitations of the power supply and the non-ideal behavior of the op-amp. The simulation results provide a more accurate representation of the expected output voltage for different input signals.

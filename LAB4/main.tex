@@ -1,0 +1,53 @@
+\documentclass[
+	12pt,twoside,a4paper
+]{report}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{etoc}
+\usepackage{xcolor, soul}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[table,xcdraw]{xcolor}
+
+\sethlcolor{yellow}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[l]{Lab Experiment \#4}
+	\fancyhead[c]{Operational Amplifiers}
+	\fancyhead[r]{May 25, 2024}
+	\fancyfoot[le, ro]{Page \thepage}
+	\fancyfoot[re, lo]{ESD Capsule 2024}
+	\fancyfoot[c]{EE211}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{0.2pt}
+	\renewcommand{\footrulewidth}{0.2pt}
+}	
+
+\thispagestyle{plain}
+
+\renewcommand{\etocaftertitlehook}{\thispagestyle{plain}}
+\renewcommand{\etocaftertochook}{\thispagestyle{plain}}
+
+\begin{document}
+	\include{title}
+	\tableofcontents
+
+	\include{chapters/01-introduction}
+	\include{chapters/02-theoretical-analysis}
+	\include{chapters/03-experimental-results}
+	\include{chapters/04-discussions}
+	\include{chapters/05-conclusion}
+
+	\include{chapters/appendices}
+
+\end{document}

@@ -1,0 +1,180 @@
+
+\section{Exercise 4: Parallel Circuit Analysis}
+
+\subsection{Objective}
+The purpose of this exercise is to measure the voltage and current values of a circuit in which resistors are connected in parallel.
+
+\subsection{Equipment}
+\begin{itemize}
+    \item Digital Multimeter (DMM)
+    \item Resistors ($1k\Omega$, $4.3k\Omega$)
+    \item Breadboard
+    \item Power Supply
+    \item Wires (Jumper Cables \& Crocodile Clips)
+\end{itemize}
+
+\newpage
+\thispagestyle{plain}
+
+\subsection{Procedure}
+\begin{enumerate}
+    \item We have calculated the equvalent resistance of the parallel circuit using the following formula:
+    
+    \begin{align*}
+        R_{eq} &= \frac{R_1\times R_2}{R_1 + R_2} = \frac{1k\Omega \times 4.3k\Omega}{1k\Omega + 4.3k\Omega} \\
+        &= \frac{4.3M\Omega}{5.3k\Omega} = 0.811k\Omega
+    \end{align*}
+    
+    \item We have made the circuit analysis using LTspice and this is the results:
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=1\textwidth]{assets/taks_4.png}
+        \caption{Circuit Diagram \& Calculations}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={Voltage (V)},
+                ylabel={Current (mA)},
+                xmin=-5, xmax=5,
+                ymin=-0.01, ymax=0.01,
+                xtick={-5,-1,0,1,2.5,5},
+                ytick={-0.01, -0.006, -0.001, 0, 0.001, 0.006, 0.01},
+                legend pos=north west,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                grid style=dashed,
+            ]
+                \addplot[
+                    color=red,
+                    mark=*,
+                ]
+                coordinates {
+                    (-5, -0.006)
+                    (-1, -0.001)
+                    (1, 0.001)
+                    (2.5, 0.003)
+                    (5, 0.006)
+                };
+                \legend{Theoretical Data}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Voltage-Current Graph of the Theoretical Circuit}
+    \end{figure}
+
+    \newpage
+    \thispagestyle{plain}
+
+    \item We have connected the resistors in parallel on the breadboard as shown in the figure below:
+    \begin{figure}[h]
+        \centering
+        \begin{circuitikz} \draw
+            (0,0) -- (0,4)
+            to[battery] (4,4) -- (4,0)
+            to[R, l=$1k\Omega$] (0,0)
+            (0.5,0) -- (0.5,-2)
+            to[R, l=$4.3k\Omega$] (3.5,-2) -- (3.5,0)
+            ;
+        \end{circuitikz}
+        \caption{Parallel Circuit with Two Resistors}
+    \end{figure}
+
+    \item We have measured the current values and these are the results:
+    \begin{figure}[h]
+        \centering
+        \begin{minipage}{0.75\textwidth}
+            \includegraphics[width=1\linewidth]{assets/parallel-measurement.png}
+            \caption{Experimental Measurements of the Series Circuit}
+            \label{current-measurements-parallel}
+        \end{minipage}
+    \end{figure}
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={Voltage (V)},
+                ylabel={Current (mA)},
+                xmin=0, xmax=5,
+                ymin=0, ymax=0.4,
+                xtick={0, 0.5, 1, 2, 3, 3.5, 4, 4.4, 5},
+                ytick={0, 0.15, 0.28, 0.33, 0.36, 0.39},
+                legend pos=north west,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                grid style=dashed,
+            ]
+                \addplot[
+                    color=blue,
+                    mark=*,
+                ]
+                coordinates {
+                    (0.5, 0.15)
+                    (2, 0.28)
+                    (3.5, 0.33)
+                    (4.4, 0.36)
+                    (5, 0.39)
+                };
+                \legend{Experimental Data}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Voltage-Current Graph of the Experimental Circuit According to the Figure\#\ref{current-measurements-parallel}}
+    \end{figure}
+    
+    \newpage
+    \thispagestyle{plain}
+
+    \item We have compared the theoretical and experimental results and these are the results:
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                xlabel={Voltage (V)},
+                ylabel={Current (mA)},
+                xmin=0, xmax=5,
+                ymin=0, ymax=0.6,
+                xtick={0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5},
+                ytick={0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1},
+                legend pos=north west,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                grid style=dashed,
+            ]
+                \addplot[
+                    color=blue,
+                    mark=*,
+                ]
+                coordinates {
+                    (-5, -0.6)
+                    (-1, -0.1)
+                    (1, 0.1)
+                    (2.5, 0.3)
+                    (5, 0.6)
+                };
+                \addlegendentry{Experimental Data}
+
+                \addplot[
+                    color=red,
+                    mark=*,
+                ]
+                coordinates {
+                    (0.5, 0.15)
+                    (2, 0.28)
+                    (3.5, 0.33)
+                    (4.4, 0.36)
+                    (5, 0.39)
+                };
+                \addlegendentry{Theoretical Data}
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Voltage-Current Graph Comparasion}
+    \end{figure}
+\end{enumerate}
+
+\subsection{Results}
+We have measured the voltage and current values of the parallel circuit and compared the results with the theoretical values. The results are close to the theoretical values. The differences between the theoretical and experimental values are due to the tolerance of the resistors and the measurement errors.
+
+\newpage
+\thispagestyle{plain}

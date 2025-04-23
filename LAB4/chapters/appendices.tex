@@ -1,0 +1,36 @@
+\chapter{Appendices}
+
+\section{LTspice Simulation Code}
+
+\subsection{Non-Inverting Amplifier}
+
+\begin{lstlisting}
+* Non-Inverting Amplifier @ 100mV 1kHz sine
+XU1 N004 N002 N001 N005 N003 LM741
+R1 0 N002 1k
+V1 N004 0 SINE(0 1 1k)
+R2 N003 N002 22k
+V2 N001 0 12
+V3 0 N005 12
+.tran 1m
+.lib LM741.lib
+.backanno
+.end
+\end{lstlisting}
+
+
+\subsection{Inverting Amplifier}
+
+\begin{lstlisting}
+* Inverting Amplifier @ 100mV 1kHz sine
+XU1 0 N002 N001 N005 N003 LM741
+V1 N004 0 SINE(0 1 1k)
+V2 N001 0 12
+V3 0 N005 12
+R1 N002 N004 1k
+R2 N003 N002 22k
+.tran 1m
+.lib LM741.lib
+.backanno
+.end
+\end{lstlisting}

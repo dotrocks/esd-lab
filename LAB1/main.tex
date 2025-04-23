@@ -1,0 +1,51 @@
+\documentclass[
+	12pt,twoside,a4paper
+]{report}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{etoc}
+\usepackage{xcolor, soul}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\sethlcolor{yellow}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[l]{Lab Experiment \#1}
+	\fancyhead[c]{Ohm's Law}
+	\fancyhead[r]{April 23, 2024}
+	\fancyfoot[le, ro]{Page \thepage}
+	\fancyfoot[re, lo]{ESD Capsule 2024}
+	\fancyfoot[c]{EE211}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{0.2pt}
+	\renewcommand{\footrulewidth}{0.2pt}
+}	
+
+\thispagestyle{plain}
+
+\renewcommand{\etocaftertitlehook}{\thispagestyle{plain}}
+\renewcommand{\etocaftertochook}{\thispagestyle{plain}}
+
+\begin{document}
+	\include{title}
+	\tableofcontents
+
+	\include{chapters/01-overview}
+	\include{chapters/02-pre-lab}
+	\include{chapters/03-exercises}
+	\include{chapters/04-conclusion}
+
+	\bibliographystyle{plain}
+	\bibliography{refs.bib}
+\end{document}

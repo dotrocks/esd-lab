@@ -1,0 +1,54 @@
+\def\paperTitle{Pre-Lab 1}
+\def\paperSubTitle{Ohm's Law}
+\def\author{Barış DEMİRCİ}
+\def\sid{agu@338.rocks}
+
+\documentclass[
+	12pt,twoside,a4paper
+]{report}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{etoc}
+\usepackage{xcolor, soul}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+
+\sethlcolor{yellow}
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[l]{\paperTitle}
+	\fancyhead[c]{\paperSubTitle}
+	\fancyhead[r]{April 23, 2024}
+	\fancyfoot[le, ro]{Page \thepage}
+	\fancyfoot[re, lo]{\author}
+	\fancyfoot[c]{\sid}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{0.2pt}
+	\renewcommand{\footrulewidth}{0.2pt}
+}	
+
+\thispagestyle{plain}
+
+\renewcommand{\etocaftertitlehook}{\thispagestyle{plain}}
+\renewcommand{\etocaftertochook}{\thispagestyle{plain}}
+
+\begin{document}
+	\include{title}
+	\tableofcontents
+
+	\include{chapters/01-overview.tex}
+	\include{chapters/02-tasks.tex}
+	\include{chapters/03-exercises.tex}
+	\include{chapters/04-conclusion.tex}
+
+	\bibliographystyle{plain}
+	\bibliography{refs.bib}
+
+\end{document}
